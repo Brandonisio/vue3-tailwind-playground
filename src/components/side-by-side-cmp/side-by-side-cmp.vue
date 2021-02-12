@@ -106,7 +106,6 @@ export default {
   watch: {
     $currentStep: {
       handler(val) {
-        console.log(val)
         this.handleScroll();
       },
       immediate: true
