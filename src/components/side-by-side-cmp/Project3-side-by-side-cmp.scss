@@ -1,0 +1,150 @@
+& {
+  /* Spacing */
+  @apply px-4;
+  /* Layout */
+  @apply overflow-hidden;
+
+  .SideBySideCmp__container {
+    /* Grid */
+    @apply grid grid-cols-12 gap-4;
+
+    .SideBySideCmp__text-container {
+      /* Grid */
+      @apply col-span-full sm:col-span-5 lg:col-span-4;
+      /* Layout */
+      @apply sm:flex;
+      /* Box Alignment */
+      @apply sm:items-center;
+
+      &--right {
+        /* Grid */
+        @apply sm:col-end-13 lg:col-end-12;
+      }
+
+      &--left {
+        /* Grid */
+        @apply lg:col-start-2;
+      }
+
+      .SideBySideCmp__small-title {
+        /* Typography */
+        @apply font-serif text-base font-black text-blue-400;
+        /* Spacing */
+        @apply mb-4;
+      }
+
+      .SideBySideCmp__title {
+        /* Typography */
+        @apply font-sans text-4xl font-bold text-blue-400;
+        /* Spacing */
+        @apply mb-8;
+
+        &--simple {
+          /* Typography */
+          @apply text-5xl;
+        }
+      }
+
+      .SideBySideCmp__wysiwyg {
+        /* Typography */
+        @apply font-serif text-base font-light text-current;
+
+        ::v-deep(*:last-child) {
+          /* Spacing */
+          @apply mb-0;
+        }
+      }
+    }
+
+    /* Step sm md lg xl */
+    .SideBySideCmp__side-box {
+      /* Layout */
+      @apply relative;
+
+      /* ANIMATION CLASSES (starters, will be animated with animejs on scroll) */
+      &.fade-right,
+      &.fade-left {
+        /* Effects */
+        @apply opacity-0;
+      }
+
+      &.fade-right {
+        /* Layout */
+        @apply -right-full;
+      }
+
+      &.fade-left {
+        /* Layout */
+        @apply -left-full;
+      }
+    }
+
+    .SideBySideCmp__side-box--image {
+      height: 320px;
+
+      @screen md {
+        height: 400px;
+      }
+
+      @screen lg {
+        height: 530px;
+      }
+
+      ::v-deep(img) {
+        position: absolute;
+        top: 0;
+        width: 50vw;
+        height: 100%;
+        max-width: none;
+        object-fit: cover;
+      }
+    }
+
+    .SideBySideCmp__image-container--left {
+      /* Grid */
+      @apply col-span-full sm:col-span-6;
+      /* Layout */
+      @apply sm:flex;
+      /* Box Alignment */
+      @apply sm:items-center sm:justify-end;
+
+      /* Step xs */
+      .SideBySideCmp__aspect-ratio-image {
+        /* Spacing */
+        @apply -mx-4;
+
+        ::v-deep(img) {
+          /* Layout */
+          @apply object-cover object-center;
+        }
+      }
+
+      /* Step sm md lg xl */
+      .SideBySideCmp__side-box--image {
+        ::v-deep(img) {
+          right: 0;
+          /* Borders */
+          @apply rounded-r-sm;
+        }
+      }
+    }
+
+    .SideBySideCmp__image-container--right {
+      /* Grid */
+      @apply col-end-13 col-span-6;
+      /* Layout */
+      @apply flex;
+      /* Box Alignment */
+      @apply items-center justify-start;
+
+      /* Step sm md lg xl */
+      .SideBySideCmp__side-box--image {
+        ::v-deep(img) {
+          left: 0;
+          /* Borders */
+          @apply rounded-l-sm;
+        }
+      }
+    }
+  }
+}

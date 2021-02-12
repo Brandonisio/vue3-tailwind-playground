@@ -1,0 +1,118 @@
+@layer components {
+  & {
+    overflow: hidden;
+    @apply px-r;
+
+    .SideBySideCmp__container {
+      @apply grid grid-cols-12 gap-4;
+
+      .SideBySideCmp__text-container {
+        @apply col-span-full sm:col-span-5 sm:flex sm:items-center lg:col-span-4;
+
+        &--right {
+          @apply sm:col-end-13 lg:col-end-12;
+        }
+
+        &--left {
+          @apply lg:col-start-2;
+        }
+
+        .SideBySideCmp__small-title {
+          @apply font-lato text-base font-black text-blue-400;
+          @apply mb-4;
+        }
+
+        .SideBySideCmp__title {
+          @apply font-oswald text-4xl font-bold text-blue-400;
+          @apply mb-8;
+
+          &--simple {
+            @apply text-5xl;
+          }
+        }
+
+        .SideBySideCmp__wysiwyg {
+          @apply font-lato text-base font-light text-p1-gray;
+
+          ::v-deep(*:last-child) {
+            @apply mb-0;
+          }
+        }
+      }
+
+      /* Step sm md lg xl */
+      .SideBySideCmp__side-box {
+        position: relative;
+
+        /* ANIMATION CLASSES (starters, will be animated with animejs on scroll) */
+        &.fade-right,
+        &.fade-left {
+          opacity: 0;
+        }
+
+        &.fade-right {
+          right: -100%;
+        }
+
+        &.fade-left {
+          left: -100%
+        }
+      }
+
+      .SideBySideCmp__side-box--image {
+        height: 320px;
+
+        @screen md {
+          height: 400px;
+        }
+
+        @screen lg {
+          height: 530px;
+        }
+
+        ::v-deep(img) {
+          position: absolute;
+          top: 0;
+          width: 50vw;
+          height: 100%;
+          max-width: none;
+          object-fit: cover;
+        }
+      }
+
+      .SideBySideCmp__image-container--left {
+        @apply col-span-full sm:col-span-6 sm:flex sm:items-center sm:justify-end;
+
+        /* Step xs */
+        .SideBySideCmp__aspect-ratio-image {
+          @apply -mx-4;
+
+          ::v-deep(img) {
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+
+        /* Step sm md lg xl */
+        .SideBySideCmp__side-box--image {
+          ::v-deep(img) {
+            right: 0;
+            @apply rounded-r-sm;
+          }
+        }
+      }
+
+      .SideBySideCmp__image-container--right {
+        @apply col-end-13 col-span-6 flex items-center justify-start;
+
+        /* Step sm md lg xl */
+        .SideBySideCmp__side-box--image {
+          ::v-deep(img) {
+            left: 0;
+            @apply rounded-l-sm;
+          }
+        }
+      }
+    }
+  }
+}
